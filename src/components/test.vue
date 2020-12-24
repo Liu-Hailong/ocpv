@@ -8,19 +8,18 @@
     </el-header>
     <el-container>
       <el-aside width="200px">
+
       </el-aside>
       <el-main>
-        <router-view></router-view>
+
       </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
-import SelectFunc from "@/components/SelectFunc";
 export default {
-name: "Func",
-  components: {SelectFunc}
+  name: "Func"
 }
 </script>
 
@@ -46,7 +45,7 @@ name: "Func",
   line-height: 100%;
 }
 
-body >#app> .el-container {
+body > .el-container {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -79,12 +78,6 @@ body >#app> .el-container {
 .head > img {
   margin-right: 5px;
   margin-top: 16px;
-}
-
-.subhead {
-  position: center;
-  width: 100%;
-  color: white;
 }
 
 </style>

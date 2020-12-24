@@ -1,26 +1,25 @@
 <template>
   <el-container>
-    <el-header>
-      <p class="head">
-        <img class="logo" src="http://www.chinamacro.cn/images/logo_n.png" />
-        <h>OCP全渠道数字平台</h>
-      </p>
+    <el-header class="head">
+      <h>选择订单类型</h>
     </el-header>
-    <el-container>
-      <el-aside width="200px">
-      </el-aside>
-      <el-main>
-        <router-view></router-view>
-      </el-main>
-    </el-container>
+    <el-main>
+      <router-link to="/WholesalePurchase">
+        <el-button class="button">批发采购</el-button>
+      </router-link>
+      <router-link to="/Stockdemand">
+        <el-button class="button">备货需求</el-button>
+      </router-link>
+      <router-link to="/test">
+        <el-button class="button">test</el-button>
+      </router-link>
+    </el-main>
   </el-container>
 </template>
 
 <script>
-import SelectFunc from "@/components/SelectFunc";
 export default {
-name: "Func",
-  components: {SelectFunc}
+  name: "SelectFunc"
 }
 </script>
 
@@ -29,7 +28,8 @@ name: "Func",
   background-color: rgba(235, 116, 25, 0.8);
   color: #333;
   text-align: center;
-  line-height: 60px;
+  line-height: 50px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .el-aside {
@@ -72,7 +72,7 @@ body >#app> .el-container {
 }
 
 .head > h{
-  font-size: 32px;
+  font-size: 24px;
   color: white;
 }
 
@@ -81,10 +81,8 @@ body >#app> .el-container {
   margin-top: 16px;
 }
 
-.subhead {
-  position: center;
-  width: 100%;
-  color: white;
+.button {
+  margin: 20px;
 }
 
 </style>
