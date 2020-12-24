@@ -87,7 +87,7 @@ name: "Regist",
   border-radius: 10px 10px 10px 10px;
 }
 
-body > .el-container {
+body >#app> .el-container {
   margin: auto;
   top: 100px;
   width: 400px;
