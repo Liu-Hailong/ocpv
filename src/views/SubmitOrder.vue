@@ -28,7 +28,7 @@
     </div>
     <el-container>
       <el-aside width="400px">
-        <el-row>
+        <el-row class="tac">
           <el-col :span="12">
             <el-menu
                 default-active="2"
@@ -104,7 +104,7 @@
 
 <script>
 export default {
-name: "Func",
+  name: "Func",
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
