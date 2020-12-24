@@ -14,7 +14,7 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
-          <el-button @click="resetForm('ruleForm')">注册</el-button>
+          <el-button @click="registpage()">注册</el-button>
         </el-form-item>
       </el-form>
     </el-main>
@@ -45,22 +45,20 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
+            this.$router.push("Func");
             const _this = this;
-            this.axios.post("", this.ruleForm.then(res => {
+            this.$axios.post("http://localhost:8080/Login", this.ruleForm).then(res => {
               const jwt = res.headers['authorization'];
-              const userInfo = res.data.data
-
-              _this.$store
-
-            }));
+              const userInfo = res.data.data;
+            })
           } else {
             console.log('error submit!!');
             return false;
           }
         });
       },
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
+      registpage() {
+        this.$router.push("Regist");
       }
     }
   }
