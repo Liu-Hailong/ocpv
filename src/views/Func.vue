@@ -26,9 +26,8 @@
 
     </div>
     <el-container>
-      <el-aside width="200px">
       <el-aside width="400px">
-        <el-row>
+        <el-row class="tac">
           <el-col :span="12">
             <el-menu
                 default-active="2"
@@ -44,10 +43,10 @@
                   <span>订单管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="1-1" @click="tosubmit()">提交订单</el-menu-item>
-                  <el-menu-item index="1-2" @click="topending()">待处理订单</el-menu-item>
-                  <el-menu-item index="1-3" @click="topurchase()">采购订单</el-menu-item>
-                  <el-menu-item index="1-4" @click="toretail()">零售订单列表</el-menu-item>
+                  <el-menu-item index="1-1">提交订单</el-menu-item>
+                  <el-menu-item index="1-2">待处理订单</el-menu-item>
+                  <el-menu-item index="1-3">采购订单</el-menu-item>
+                  <el-menu-item index="1-4">零售订单列表</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="2">
@@ -105,7 +104,7 @@
 <script>
 import SelectFunc from "@/components/SelectFunc";
 export default {
-name: "Func",
+  name: "Func",
   components: {SelectFunc},
   methods: {
     handleOpen(key, keyPath) {
@@ -116,18 +115,6 @@ name: "Func",
     },
     backlogin(){
       this.$router.push("Login");
-    },
-    tosubmit(){
-      this.$router.push("SubmitOrder");
-    },
-    topending(){
-      this.$router.push("PendingOrder");
-    },
-    topurchase(){
-      this.$router.push("PurchaseOrder");
-    },
-    toretail(){
-      this.$router.push("RetailOrderList");
     }
   }
 }
@@ -142,7 +129,7 @@ name: "Func",
 }
 
 .el-aside {
-  background-color: #E9EEF3;
+  background-color: rgba(102, 102, 102, 1);
   color: #333;
   text-align: center;
   line-height: 100%;
@@ -155,7 +142,7 @@ name: "Func",
   line-height: 100%;
 }
 
-body >#app> .el-container {
+body > .el-container {
   position: absolute;
   bottom: 0px;
   left: 0px;
