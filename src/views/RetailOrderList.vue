@@ -22,13 +22,10 @@
         <img src="../assets/u42.png" style="float: right;height: 30px">
       </p>
     </el-header>
-    <div>
 
-    </div>
-    <el-container>
-      <el-aside width="200px">
+    <el-container >
       <el-aside width="400px">
-        <el-row>
+        <el-row class="tac">
           <el-col :span="12">
             <el-menu
                 default-active="2"
@@ -94,19 +91,59 @@
             </el-menu>
           </el-col>
         </el-row>
+
       </el-aside>
+
       <el-main>
-        <router-view></router-view>
+        <div>
+          <el-form ref="form" :model="form" label-width="90px">
+            <el-form-item label="经销商名称">
+              <el-input v-model="form.name" style="width: 200px;padding-left: 10px"></el-input>
+            </el-form-item>
+            <el-form-item label="发货状态">
+              <el-select v-model="form.region" placeholder="请选择">
+                <el-option label="待发货" value="shanghai"></el-option>
+                <el-option label="已发货" value="beijing"></el-option>
+                <el-option label="已签收" value="beijing"></el-option>
+                <el-option label="暂停发货" value="beijing"></el-option>
+                <el-option label="已取消" value="beijing"></el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="活动性质">
+              <el-checkbox-group v-model="form.type">
+                <el-checkbox label="买家留言" name="type"></el-checkbox>
+                <el-checkbox label="卖家留言" name="type"></el-checkbox>
+              </el-checkbox-group>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="onSubmit">查询</el-button>
+            </el-form-item>
+          </el-form>
+        </div>
       </el-main>
     </el-container>
+
   </el-container>
+
 </template>
 
 <script>
-import SelectFunc from "@/components/SelectFunc";
 export default {
-name: "Func",
-  components: {SelectFunc},
+  name: "Func",
+  data() {
+    return {
+      form: {
+        name: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      }
+    }
+  },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
@@ -116,6 +153,9 @@ name: "Func",
     },
     backlogin(){
       this.$router.push("Login");
+    },
+    onSubmit() {
+      console.log('submit!');
     },
     tosubmit(){
       this.$router.push("SubmitOrder");
@@ -155,7 +195,7 @@ name: "Func",
   line-height: 100%;
 }
 
-body >#app> .el-container {
+body > .el-container {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -177,7 +217,7 @@ body >#app> .el-container {
 }
 
 .head {
-  margin: 0px;
+  margin: 0;
 }
 
 .head > h{
@@ -192,12 +232,6 @@ body >#app> .el-container {
 .el-dropdown-link {
   cursor: pointer;
   color: #409EFF;
-}
-
-.subhead {
-  position: center;
-  width: 100%;
-  color: white;
 }
 
 </style>

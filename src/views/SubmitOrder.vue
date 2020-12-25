@@ -21,14 +21,14 @@
         </el-row>
         <img src="../assets/u42.png" style="float: right;height: 30px">
       </p>
+
     </el-header>
     <div>
 
     </div>
     <el-container>
-      <el-aside width="200px">
       <el-aside width="400px">
-        <el-row>
+        <el-row class="tac">
           <el-col :span="12">
             <el-menu
                 default-active="2"
@@ -96,17 +96,15 @@
         </el-row>
       </el-aside>
       <el-main>
-        <router-view></router-view>
+
       </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
-import SelectFunc from "@/components/SelectFunc";
 export default {
-name: "Func",
-  components: {SelectFunc},
+  name: "Func",
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
@@ -155,7 +153,7 @@ name: "Func",
   line-height: 100%;
 }
 
-body >#app> .el-container {
+body > .el-container {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -177,7 +175,7 @@ body >#app> .el-container {
 }
 
 .head {
-  margin: 0px;
+  margin: 0;
 }
 
 .head > h{
@@ -192,12 +190,6 @@ body >#app> .el-container {
 .el-dropdown-link {
   cursor: pointer;
   color: #409EFF;
-}
-
-.subhead {
-  position: center;
-  width: 100%;
-  color: white;
 }
 
 </style>

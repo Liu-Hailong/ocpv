@@ -3,6 +3,10 @@ import VueRouter from 'vue-router'
 import Login from '../views/Login'
 import Func from '../views/Func'
 import Regist from "../views/Regist";
+import RetailOrderList from "@/views/RetailOrderList";
+import PendingOrder from "@/views/PendingOrder";
+import PurchaseOrder from "@/views/PurchaseOrder";
+import SubmitOrder from "@/views/SubmitOrder";
 
 import test from '../components/test'
 import SelectFunc from "../components/SelectFunc"
@@ -52,6 +56,26 @@ const routes = [
         component: SelectFunc
       }
     ]
+  },
+  {
+    path: '/retailorderlist',
+    name: 'RetailOrderList',
+    component: RetailOrderList
+  },
+  {
+    path: '/pendingorder',
+    name: 'PendingOrder',
+    component: PendingOrder
+  },
+  {
+    path: '/purchaseorder',
+    name: 'PurchaseOrder',
+    component: PurchaseOrder
+  },
+  {
+    path: '/submitorder',
+    name: 'SubmitOrder',
+    component: SubmitOrder
   }
 ]
 
