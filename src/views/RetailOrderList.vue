@@ -24,81 +24,73 @@
     </el-header>
 
     <el-container >
-      <el-aside width="400px">
-        <el-row class="tac">
-          <el-col :span="12">
-            <el-menu
-                default-active="2"
-                class="el-menu-vertical-demo"
-                @open="handleOpen"
-                @close="handleClose"
-                background-color="#545c64"
-                text-color="#fff"
-                active-text-color="#ffd04b">
-              <el-submenu index="1">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>订单管理</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="1-1" @click="tosubmit()">提交订单</el-menu-item>
-                  <el-menu-item index="1-2" @click="topending()">待处理订单</el-menu-item>
-                  <el-menu-item index="1-3" @click="topurchase()">采购订单</el-menu-item>
-                  <el-menu-item index="1-4" @click="toretail()">零售订单列表</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="2">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>售后管理</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="2-1">申请退换货</el-menu-item>
-                  <el-menu-item index="2-2">退换货订单列表</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="3">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>产品管理</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="3-1">产品信息查询</el-menu-item>
-                  <el-menu-item index="3-2">库存信息查询</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="4">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>会员信息</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="4-1">会员信息</el-menu-item>
-                  <el-menu-item index="4-2">修改密码</el-menu-item>
-                  <el-menu-item index="4-3">账户信息</el-menu-item>
-                  <el-menu-item index="4-4">子账号管理</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="5">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>设置</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="5-1">网店设置</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-            </el-menu>
-          </el-col>
-        </el-row>
-
-      </el-aside>
-
+      <el-menu style="width: 200px"
+               default-active="2"
+               class="el-menu-vertical-demo"
+               @open="handleOpen"
+               @close="handleClose"
+               background-color="#545c64"
+               text-color="#fff"
+               active-text-color="#ffd04b">
+        <el-submenu index="1">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>订单管理</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="1-1" @click="tosubmit()">提交订单</el-menu-item>
+            <el-menu-item index="1-2" @click="topending()">待处理订单</el-menu-item>
+            <el-menu-item index="1-3" @click="topurchase()">采购订单</el-menu-item>
+            <el-menu-item index="1-4" @click="toretail()">零售订单列表</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="2">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>售后管理</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="2-1">申请退换货</el-menu-item>
+            <el-menu-item index="2-2">退换货订单列表</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="3">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>产品管理</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="3-1">产品信息查询</el-menu-item>
+            <el-menu-item index="3-2">库存信息查询</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="4">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>会员信息</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="4-1">会员信息</el-menu-item>
+            <el-menu-item index="4-2">修改密码</el-menu-item>
+            <el-menu-item index="4-3">账户信息</el-menu-item>
+            <el-menu-item index="4-4">子账号管理</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="5">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>设置</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="5-1">网店设置</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+      </el-menu>
       <el-main>
         <div>
           <el-form ref="form" :model="form" label-width="90px">
             <el-form-item label="经销商名称">
-              <el-input v-model="form.name" style="width: 200px;padding-left: 10px"></el-input>
+              <el-input v-model="form.name" placeholder="请输入" style="width: 200px;padding-left: 10px"></el-input>
             </el-form-item>
             <el-form-item label="发货状态">
               <el-select v-model="form.region" placeholder="请选择">
@@ -129,7 +121,7 @@
 
 <script>
 export default {
-  name: "Func",
+  name: "RetailOrderList",
   data() {
     return {
       form: {
@@ -181,13 +173,6 @@ export default {
   line-height: 60px;
 }
 
-.el-aside {
-  background-color: #E9EEF3;
-  color: #333;
-  text-align: center;
-  line-height: 100%;
-}
-
 .el-main {
   background-color: #E9EEF3;
   color: #333;
@@ -202,16 +187,6 @@ body > .el-container {
   right: 0px;
   top: 0px;
 }
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
-}
-
 .logo {
   margin-top: 15px;
 }
