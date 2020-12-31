@@ -37,6 +37,87 @@
       <el-form-item>
         <el-button type="primary" @click="onSubmit">查询</el-button>
       </el-form-item>
+
+    <el-table
+        @selection-change="handleSelectionChange"
+        :data="tableData"
+        border
+        style="width: 1040px">
+      <el-table-column
+          fixed
+          prop="id"
+          label="序号"
+          width="50">
+      </el-table-column>
+      <el-table-column
+          prop="from"
+          label="下单日期"
+          width="80">
+      </el-table-column>
+      <el-table-column
+          prop=""
+          label="销售订单号"
+          width="100">
+      </el-table-column>
+      <el-table-column
+          prop=""
+          label="订单类型"
+          width="100">
+      </el-table-column>
+      <el-table-column
+          prop="date"
+          label="订单状态"
+          width="120">
+      </el-table-column>
+      <el-table-column
+          prop=""
+          label="提货方式"
+          width="110">
+      </el-table-column>
+      <el-table-column
+          prop=""
+          label="联系人"
+          width="110">
+      </el-table-column>
+      <el-table-column
+          prop=""
+          label="联系电话"
+          width="110">
+      </el-table-column>
+      <el-table-column
+          prop=""
+          label="数量"
+          width="110">
+      </el-table-column>
+      <el-table-column
+          prop=""
+          label="订单金额"
+          width="110">
+      </el-table-column>
+      <el-table-column
+          prop=""
+          label="区域负责人"
+          width="110">
+      </el-table-column>
+      <el-table-column
+          prop=""
+          label="备注"
+          width="110">
+      </el-table-column>
+      <el-table-column
+          prop=""
+          label="不通过原因"
+          width="110">
+      </el-table-column>
+      <el-table-column
+          fixed="right"
+          label="操作"
+          width="260">
+        <template slot-scope="scope">
+          <el-button @click="handleClick(scope.row)" size="small">提交订单  编辑订单  订单详情  取消订单</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
     </el-form>
   </el-container>
 </template>
@@ -51,7 +132,16 @@ export default {
         region: '',
         value1: '',
         value2: ''
-      }
+      },
+      tableData: [{
+        id:'1',
+        date: '2016-05-02',
+        name: '王小虎',
+        province: '上海',
+        city: '普陀区',
+        address: '上海市普陀区金沙江路 1518 弄',
+        zip: 200333
+      }]
     }
   },
   methods: {
@@ -66,6 +156,12 @@ export default {
     },
     onSubmit() {
       console.log('submit!');
+    },
+    handleSelectionChange(val) {
+      this.multipleSelection = val;
+    },
+    handleClick(row) {
+      console.log(row);
     }
   }
 }
