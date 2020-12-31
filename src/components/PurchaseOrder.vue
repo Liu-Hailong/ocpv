@@ -52,7 +52,7 @@
       <el-table-column
           prop="orderdate"
           label="下单日期"
-          width="80">
+          width="100">
       </el-table-column>
       <el-table-column
           prop="orderid"
@@ -62,22 +62,22 @@
       <el-table-column
           prop="ordertyp"
           label="订单类型"
-          width="100">
+          width="90">
       </el-table-column>
       <el-table-column
           prop="ordersts"
           label="订单状态"
-          width="120">
+          width="100">
       </el-table-column>
       <el-table-column
           prop="pickway"
           label="提货方式"
-          width="110">
+          width="80">
       </el-table-column>
       <el-table-column
           prop="dlrid"
           label="联系人"
-          width="110">
+          width="90">
       </el-table-column>
       <el-table-column
           prop="phone"
@@ -87,17 +87,17 @@
       <el-table-column
           prop="procount"
           label="数量"
-          width="110">
+          width="50">
       </el-table-column>
       <el-table-column
           prop="OAmount"
           label="订单金额"
-          width="110">
+          width="90">
       </el-table-column>
       <el-table-column
           prop="areamngr"
           label="区域负责人"
-          width="110">
+          width="100">
       </el-table-column>
       <el-table-column
           prop="comment"
@@ -130,13 +130,173 @@ export default {
       },
       tableData: [{
         id:'1',
-        date: '2016-05-02',
-        name: '王小虎',
-        province: '上海',
-        city: '普陀区',
-        address: '上海市普陀区金沙江路 1518 弄',
-        zip: 200333
-      }]
+        orderdate:'2020-10-10',
+        orderid:'38104801',
+        ordertyp:'批发采购',
+        ordersts:'未提交',
+        pickway:'自提',
+        dlrid:'aaa',
+        phone:'1414235346',
+        procount:'2',
+        OAmount:'20000',
+        areamngr:'kkk',
+        comment:'图表不清晰'
+      },
+        {
+          id:'2',
+          orderdate:'2020-3-12',
+          orderid:'314151801',
+          ordertyp:'备货需求',
+          ordersts:'已提交',
+          pickway:'配送',
+          dlrid:'ccc',
+          phone:'1414632552',
+          procount:'6',
+          OAmount:'4000',
+          areamngr:'fwf',
+          comment:''
+        },
+        {
+          id:'',
+          orderdate:'',
+          orderid:'',
+          ordertyp:'',
+          ordersts:'待上传附件',
+          pickway:'',
+          dlrid:'',
+          phone:'',
+          procount:'',
+          OAmount:'',
+          areamngr:'',
+          comment:''
+        },
+        {
+          id:'',
+          orderdate:'',
+          orderid:'',
+          ordertyp:'',
+          ordersts:'驳回',
+          pickway:'',
+          dlrid:'',
+          phone:'',
+          procount:'',
+          OAmount:'',
+          areamngr:'',
+          comment:''
+        },
+        {
+          id:'',
+          orderdate:'',
+          orderid:'',
+          ordertyp:'',
+          ordersts:'已取消',
+          pickway:'',
+          dlrid:'',
+          phone:'',
+          procount:'',
+          OAmount:'',
+          areamngr:'',
+          comment:''
+        },
+        {
+          id:'',
+          orderdate:'',
+          orderid:'',
+          ordertyp:'',
+          ordersts:'待提货',
+          pickway:'',
+          dlrid:'',
+          phone:'',
+          procount:'',
+          OAmount:'',
+          areamngr:'',
+          comment:''
+        },
+        {
+          id:'',
+          orderdate:'',
+          orderid:'',
+          ordertyp:'',
+          ordersts:'待开票',
+          pickway:'',
+          dlrid:'',
+          phone:'',
+          procount:'',
+          OAmount:'',
+          areamngr:'',
+          comment:''
+        },
+        {
+          id:'',
+          orderdate:'',
+          orderid:'',
+          ordertyp:'',
+          ordersts:'部分开票',
+          pickway:'',
+          dlrid:'',
+          phone:'',
+          procount:'',
+          OAmount:'',
+          areamngr:'',
+          comment:''
+        },
+        {
+          id:'',
+          orderdate:'',
+          orderid:'',
+          ordertyp:'',
+          ordersts:'已开票',
+          pickway:'',
+          dlrid:'',
+          phone:'',
+          procount:'',
+          OAmount:'',
+          areamngr:'',
+          comment:''
+        },
+        {
+          id:'',
+          orderdate:'',
+          orderid:'',
+          ordertyp:'',
+          ordersts:'成功',
+          pickway:'',
+          dlrid:'',
+          phone:'',
+          procount:'',
+          OAmount:'',
+          areamngr:'',
+          comment:''
+        },
+        {
+          id:'',
+          orderdate:'',
+          orderid:'',
+          ordertyp:'',
+          ordersts:'待发货',
+          pickway:'',
+          dlrid:'',
+          phone:'',
+          procount:'',
+          OAmount:'',
+          areamngr:'',
+          comment:''
+        },
+        {
+          id:'',
+          orderdate:'',
+          orderid:'',
+          ordertyp:'',
+          ordersts:'待确认收货',
+          pickway:'',
+          dlrid:'',
+          phone:'',
+          procount:'',
+          OAmount:'',
+          areamngr:'',
+          comment:''
+        }
+      ]
     }
   },
   methods: {

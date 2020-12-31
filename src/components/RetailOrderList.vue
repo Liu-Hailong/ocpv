@@ -89,7 +89,7 @@
          @selection-change="handleSelectionChange"
          :data="tableData"
          border
-         style="width: 1040px">
+         style="width: 1000px">
        <el-table-column
            fixed
            prop="id"
