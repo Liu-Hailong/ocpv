@@ -1,10 +1,10 @@
 <template>
   <el-container>
-    <el-form ref="form" :model="form" label-width="90px">
-      <el-form-item label="销售订单号：">
-        <el-input v-model="form.name" placeholder="请输入" style="width: 200px;padding-left: 10px"></el-input>
+    <el-form ref="form" :model="form" label-width="100px">
+      <el-form-item label="销售订单号："  style="float: left">
+        <el-input v-model="form.name" placeholder="请输入" style="width: 160px"></el-input>
       </el-form-item>
-      <el-form-item label="订单日期：">
+      <el-form-item label="订单日期：" style="float: left">
         <el-date-picker style="width: 160px"
                         v-model="value1"
                         type="date"
@@ -12,30 +12,30 @@
         </el-date-picker>
         至
         <el-date-picker style="width: 160px"
-                        v-model="value1"
+                        v-model="value2"
                         type="date"
                         placeholder="请输入">
         </el-date-picker>
       </el-form-item>
-      <el-form-item label="订单金额：">
-        <el-input placeholder="请输入" style="width: 160px;padding-left: 10px"></el-input>
-        至
-        <el-input placeholder="请输入" style="width: 160px;padding-left: 10px"></el-input>
-      </el-form-item>
-      <el-form-item label="订单状态：">
+      <el-form-item label="订单状态：" style="float: left">
         <el-select v-model="form.region" placeholder="请选择">
           <el-option label="已提交" value="shanghai"></el-option>
           <el-option label="待上传附件" value="beijing"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="订单类型：">
+      <el-form-item label="订单类型：" style="float: left">
         <el-select v-model="form.region" placeholder="请选择">
           <el-option label="批发采购" value="shanghai"></el-option>
           <el-option label="备货需求" value="beijing"></el-option>
         </el-select>
       </el-form-item>
+      <el-form-item label="订单金额：" style="float: left;padding-right: 50px">
+        <el-input placeholder="请输入" style="width: 160px;padding-left: 10px"></el-input>
+        至
+        <el-input placeholder="请输入" style="width: 160px;padding-left: 10px"></el-input>
+      </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">查询</el-button>
+        <el-button type="primary" @click="onSubmit" style="float: left">查询</el-button>
       </el-form-item>
     </el-form>
   </el-container>
