@@ -66,6 +66,11 @@
 </script>
 
 <style scoped>
+  *{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+  }
   .el-header, .el-footer {
     background-color: transparent;
     text-align: center;

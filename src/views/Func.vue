@@ -1,6 +1,6 @@
 <!--这个页面没用到-->
 <template>
-  <el-container>
+  <el-container style="height: 100%">
     <el-header>
       <p class="head">
         <img class="logo" src="http://www.chinamacro.cn/images/logo_n.png" />
@@ -26,12 +26,13 @@
     <div>
 
     </div>
-    <el-container>
-      <el-aside width="400px">
+    <el-container style="">
+      <el-aside width="200px">
         <el-row class="tac">
-          <el-col :span="12">
+          <el-col :span="12" style="width: 100%">
             <el-menu
-                default-active="2"
+                default-active="1"
+                unique-opened="true"
                 class="el-menu-vertical-demo"
                 @open="handleOpen"
                 @close="handleClose"
@@ -44,7 +45,9 @@
                   <span>订单管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="1-1">提交订单</el-menu-item>
+                  <router-link to="/SelectFunc">
+                    <el-menu-item index="1-1">提交订单</el-menu-item>
+                  </router-link>
                   <el-menu-item index="1-2">待处理订单</el-menu-item>
                   <el-menu-item index="1-3">采购订单</el-menu-item>
                   <el-menu-item index="1-4">零售订单列表</el-menu-item>
@@ -95,7 +98,7 @@
           </el-col>
         </el-row>
       </el-aside>
-      <el-main>
+      <el-main style="width: 100%">
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -122,6 +125,12 @@ export default {
 </script>
 
 <style scoped>
+*{
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
 .el-header, .el-footer {
   background-color: rgba(235, 116, 25, 0.8);
   color: #333;
@@ -140,7 +149,6 @@ export default {
   background-color: #E9EEF3;
   color: #333;
   text-align: center;
-  line-height: 100%;
 }
 
 body > .el-container {
@@ -153,11 +161,11 @@ body > .el-container {
 
 .el-container:nth-child(5) .el-aside,
 .el-container:nth-child(6) .el-aside {
-  line-height: 260px;
+  line-height: 100%;
 }
 
 .el-container:nth-child(7) .el-aside {
-  line-height: 320px;
+  line-height: 100%;
 }
 
 .logo {

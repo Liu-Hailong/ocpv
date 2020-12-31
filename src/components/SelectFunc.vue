@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <el-container style="margin-top: 100px">
     <el-header class="head">
       <h>选择订单类型</h>
     </el-header>

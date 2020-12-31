@@ -38,12 +38,12 @@ const routes = [
     children: [
       {
         path: '/WholesalePurchase',
-        name: 'WholesalePurchase',
+        name: 'func/WholesalePurchase',
         component: WholesalePurchase
       },
       {
         path: '/Stockdemand',
-        name: 'Stockdemand',
+        name: 'func/Stockdemand',
         component: Stockdemand
       },
       {
@@ -51,8 +51,13 @@ const routes = [
         component: test
       },
       {
+        path: '/SelectFunc',
+        name: 'func/SelectFunc',
+        component: SelectFunc
+      },
+      {
         path: '/',
-        name: 'SelectFunc',
+        name: 'func/SelectFunc',
         component: SelectFunc
       }
     ]
