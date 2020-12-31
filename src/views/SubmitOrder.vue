@@ -21,7 +21,6 @@
         </el-row>
         <img src="../assets/u42.png" style="float: right;height: 30px">
       </p>
-
     </el-header>
 
     <el-container>
