@@ -1,8 +1,8 @@
 <template>
   <el-container>
-    <el-form ref="form" :model="form" label-width="90px">
+    <el-form ref="form" :model="form" label-width="100px">
       <el-form-item label="销售订单号：">
-        <el-input v-model="form.name" placeholder="请输入" style="width: 200px;padding-left: 10px"></el-input>
+        <el-input v-model="form.name" placeholder="请输入" style="width: 200px"></el-input>
       </el-form-item>
       <el-form-item label="订单日期：">
         <el-date-picker style="width: 160px"
