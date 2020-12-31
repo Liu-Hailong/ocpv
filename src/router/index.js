@@ -4,7 +4,7 @@ import Login from '../views/Login'
 import Func from '../views/Func'
 import Regist from "../views/Regist";
 import RetailOrderList from "@/views/RetailOrderList";
-import PendingOrder from "@/views/PendingOrder";
+import PendingOrder from "@/components/PendingOrder";
 import PurchaseOrder from "@/views/PurchaseOrder";
 import SubmitOrder from "@/views/SubmitOrder";
 
@@ -40,6 +40,11 @@ const routes = [
         path: '/WholesalePurchase',
         name: 'func/WholesalePurchase',
         component: WholesalePurchase
+      },
+      {
+        path: '/PendingOrder',
+        name: 'func/PendingOrder',
+        component: PendingOrder
       },
       {
         path: '/Stockdemand',

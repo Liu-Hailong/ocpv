@@ -45,10 +45,8 @@
                   <span>订单管理</span>
                 </template>
                 <el-menu-item-group>
-                  <router-link to="/SelectFunc">
-                    <el-menu-item index="1-1">提交订单</el-menu-item>
-                  </router-link>
-                  <el-menu-item index="1-2">待处理订单</el-menu-item>
+                  <router-link to="/SelectFunc"><el-menu-item index="1-1">提交订单</el-menu-item></router-link>
+                  <router-link to="/PendingOrder"><el-menu-item index="1-2">待处理订单</el-menu-item></router-link>
                   <el-menu-item index="1-3">采购订单</el-menu-item>
                   <el-menu-item index="1-4">零售订单列表</el-menu-item>
                 </el-menu-item-group>
