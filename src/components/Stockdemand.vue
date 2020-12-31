@@ -76,26 +76,59 @@
         <el-table-column
             prop="id"
             label="序号"
-            width="180">
+            width="60">
         </el-table-column>
         <el-table-column
-            prop="name"
-            label="产品编码">
+            prop="proid"
+            label="产品编码"
+            width="80">
         </el-table-column>
         <el-table-column
-            prop="amount1"
+            prop="pronme"
+            label="产品名称"
+            width="80">
+        </el-table-column>
+        <el-table-column
+            prop="protyp"
+            label="品类"
+            width="80">
+        </el-table-column>
+        <el-table-column
+            prop="procount"
             sortable
-            label="产品名称">
+            label="数量（件）"
+            width="120">
         </el-table-column>
         <el-table-column
-            prop="amount2"
+            prop="tcktpric"
             sortable
-            label="数值 2">
+            label="开票价（元）"
+            width="140">
         </el-table-column>
         <el-table-column
-            prop="amount3"
+            prop="money"
             sortable
-            label="数值 3">
+            label="金额"
+            width="80">
+        </el-table-column>
+        <el-table-column
+            prop="probulk"
+            sortable
+            label="体积"
+            width="80">
+        </el-table-column>
+        <el-table-column
+            fixed="right"
+            label="操作"
+            width="80">
+          <template slot-scope="scope">
+            <el-button
+                @click.native.prevent="deleteRow(scope.$index, tableData)"
+                type="text"
+                size="small">
+              移除
+            </el-button>
+          </template>
         </el-table-column>
       </el-table>
       <!--分页控制-->
@@ -124,11 +157,14 @@ export default {
   name: "Stockdemand",
   data() {
     return {
+
       formInline: {
         user: '',
         wares: [{
           id: '1',
-          name: 'ddd'
+          name: 'ddd',
+          product:'',
+
         }, {
           id: '2',
           name: 'ppp'
