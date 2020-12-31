@@ -87,6 +87,7 @@
       </el-form-item>
     </el-form>
 
+    <!--数据表格-->
     <el-table
         ref="multipleTable"
         :data="tableData"
