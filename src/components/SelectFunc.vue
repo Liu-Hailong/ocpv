@@ -10,9 +10,6 @@
       <router-link to="/Stockdemand">
         <el-button class="button">备货需求</el-button>
       </router-link>
-      <router-link to="/test">
-        <el-button class="button">test</el-button>
-      </router-link>
     </el-main>
   </el-container>
 </template>

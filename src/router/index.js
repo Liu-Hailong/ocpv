@@ -35,34 +35,34 @@ const routes = [
     component: Func,
     children: [
       {
+        path: '/SelectFunc',
+        name: 'SelectFunc',
+        component: SelectFunc,
+      },
+      {
         path: '/WholesalePurchase',
-        name: 'func/WholesalePurchase',
-        component: WholesalePurchase
+        name: 'WholesalePurchase',
+        component: WholesalePurchase,
       },
       {
         path: '/Stockdemand',
-        name: 'func/Stockdemand',
-        component: Stockdemand
-      },
-      {
-        path: '/SelectFunc',
-        name: 'func/SelectFunc',
-        component: SelectFunc
+        name: 'Stockdemand',
+        component: Stockdemand,
       },
       {
         path: '/PurchaseOrder',
         name: 'PurchaseOrder',
-        component: PurchaseOrder
+        component: PurchaseOrder,
       },
       {
         path: '/PendingOrder',
         name: 'PendingOrder',
-        component: PendingOrder
+        component: PendingOrder,
       },
       {
         path: '/RetailOrderList',
         name: 'RetailOrderList',
-        component: RetailOrderList
+        component: RetailOrderList,
       }
     ]
   }
