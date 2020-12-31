@@ -1,28 +1,4 @@
 <template>
-  <el-container>
-    <el-header>
-      <p class="head">
-        <img class="logo" src="http://www.chinamacro.cn/images/logo_n.png" />
-        <h>OCP全渠道数字平台</h>
-        <el-tooltip class="item" content="退出系统" placement="bottom-start">
-          <img src="../assets/u127.png" style="float: right;padding-left:16px;height: 30px;cursor: pointer" @click="backlogin()">
-        </el-tooltip>
-        <el-row style="float: right">
-          <el-col :span="12">
-            <el-dropdown trigger="click">
-              <span class="el-dropdown-link" style="color: white;font-size: 19px">admin</span>
-              <el-dropdown-menu>
-                <el-dropdown-item>水热事业部</el-dropdown-item>
-                <el-dropdown-item>厨电事业部</el-dropdown-item>
-                <el-dropdown-item>热能事业部</el-dropdown-item>
-              </el-dropdown-menu>
-            </el-dropdown>
-          </el-col>
-        </el-row>
-        <img src="../assets/u42.png" style="float: right;height: 30px">
-      </p>
-    </el-header>
-
     <el-container >
       <el-menu style="width: 200px"
                default-active="2"
@@ -129,8 +105,6 @@
         </div>
       </el-main>
     </el-container>
-
-  </el-container>
 </template>
 
 <script>
@@ -184,47 +158,5 @@ export default {
 </script>
 
 <style scoped>
-.el-header, .el-footer {
-  background-color: rgba(235, 116, 25, 0.8);
-  color: #333;
-  text-align: center;
-  line-height: 60px;
-}
 
-.el-main {
-  background-color: #E9EEF3;
-  color: #333;
-  text-align: center;
-  line-height: 100%;
-}
-
-body > .el-container {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-}
-
-.logo {
-  margin-top: 15px;
-}
-
-.head {
-  margin: 0;
-}
-
-.head > h{
-  font-size: 32px;
-  color: white;
-}
-
-.head > img {
-  margin-right: 5px;
-  margin-top: 16px;
-}
-.el-dropdown-link {
-  cursor: pointer;
-  color: #409EFF;
-}
 </style>
