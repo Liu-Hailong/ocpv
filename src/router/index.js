@@ -8,6 +8,11 @@ import PendingOrder from "@/views/PendingOrder";
 import PurchaseOrder from "@/views/PurchaseOrder";
 import SubmitOrder from "@/views/SubmitOrder";
 
+import test from '../components/test'
+import SelectFunc from "../components/SelectFunc"
+import WholesalePurchase from "../components/WholesalePurchase"
+import Stockdemand from "../components/Stockdemand"
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -29,7 +34,28 @@ const routes = [
   {
     path: '/func',
     name: 'Func',
-    component: Func
+    component: Func,
+    children: [
+      {
+        path: '/WholesalePurchase',
+        name: 'WholesalePurchase',
+        component: WholesalePurchase
+      },
+      {
+        path: '/Stockdemand',
+        name: 'Stockdemand',
+        component: Stockdemand
+      },
+      {
+        path: '/test',
+        component: test
+      },
+      {
+        path: '/',
+        name: 'SelectFunc',
+        component: SelectFunc
+      }
+    ]
   },
   {
     path: '/retailorderlist',
