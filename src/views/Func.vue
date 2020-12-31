@@ -1,4 +1,3 @@
-<!--这个页面没用到-->
 <template>
   <el-container style="height: 100%">
     <el-header>
@@ -23,79 +22,72 @@
         <img src="../assets/u42.png" style="float: right;height: 30px">
       </p>
     </el-header>
-    <div>
 
-    </div>
     <el-container style="">
-      <el-aside width="200px">
-        <el-row class="tac">
-          <el-col :span="12" style="width: 100%">
-            <el-menu
-                default-active="1"
-                unique-opened="true"
-                class="el-menu-vertical-demo"
-                @open="handleOpen"
-                @close="handleClose"
-                background-color="#545c64"
-                text-color="#fff"
-                active-text-color="#ffd04b">
-              <el-submenu index="1">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>订单管理</span>
-                </template>
-                <el-menu-item-group>
-                  <router-link to="/SelectFunc"><el-menu-item index="1-1">提交订单</el-menu-item></router-link>
-                  <router-link to="/PendingOrder"><el-menu-item index="1-2">待处理订单</el-menu-item></router-link>
-                  <router-link to="/PurchaseOrder"><el-menu-item index="1-3">采购订单</el-menu-item></router-link>
-                  <router-link to="/RetailOrderList"><el-menu-item index="1-4">零售订单列表</el-menu-item></router-link>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="2">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>售后管理</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="2-1">申请退换货</el-menu-item>
-                  <el-menu-item index="2-2">退换货订单列表</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="3">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>产品管理</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="3-1">产品信息查询</el-menu-item>
-                  <el-menu-item index="3-2">库存信息查询</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="4">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>会员信息</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="4-1">会员信息</el-menu-item>
-                  <el-menu-item index="4-2">修改密码</el-menu-item>
-                  <el-menu-item index="4-3">账户信息</el-menu-item>
-                  <el-menu-item index="4-4">子账号管理</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="5">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>设置</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="5-1">网店设置</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-            </el-menu>
-          </el-col>
-        </el-row>
-      </el-aside>
+      <el-menu style="width: 240px"
+               default-active="1"
+               unique-opened="true"
+               class="el-menu-vertical-demo"
+               @open="handleOpen"
+               @close="handleClose"
+               background-color="#545c64"
+               text-color="#fff"
+               active-text-color="#ffd04b">
+        <el-submenu index="1">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>订单管理</span>
+          </template>
+          <el-menu-item-group>
+            <router-link to="/SelectFunc"><el-menu-item index="1-1">提交订单</el-menu-item></router-link>
+            <router-link to="/PendingOrder"><el-menu-item index="1-2">待处理订单</el-menu-item></router-link>
+            <router-link to="/PurchaseOrder"><el-menu-item index="1-3">采购订单</el-menu-item></router-link>
+            <router-link to="/RetailOrderList"><el-menu-item index="1-4">零售订单列表</el-menu-item></router-link>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="2">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>售后管理</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="2-1">申请退换货</el-menu-item>
+            <el-menu-item index="2-2">退换货订单列表</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="3">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>产品管理</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="3-1">产品信息查询</el-menu-item>
+            <el-menu-item index="3-2">库存信息查询</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="4">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>会员信息</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="4-1">会员信息</el-menu-item>
+            <el-menu-item index="4-2">修改密码</el-menu-item>
+            <el-menu-item index="4-3">账户信息</el-menu-item>
+            <el-menu-item index="4-4">子账号管理</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="5">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>设置</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="5-1">网店设置</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+      </el-menu>
+
       <el-main style="width: 100%">
         <router-view></router-view>
       </el-main>
@@ -104,6 +96,22 @@
 </template>
 
 <script>
+export default {
+  methods: {
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    backlogin() {
+      this.$router.push("Login");
+    },
+    onSubmit() {
+      console.log('submit!');
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -120,13 +128,6 @@
   line-height: 60px;
 }
 
-.el-aside {
-  background-color: rgba(102, 102, 102, 1);
-  color: #333;
-  text-align: center;
-  line-height: 100%;
-}
-
 .el-main {
   background-color: #E9EEF3;
   color: #333;
@@ -139,15 +140,6 @@ body > .el-container {
   left: 0px;
   right: 0px;
   top: 0px;
-}
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 100%;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 100%;
 }
 
 .logo {
@@ -170,12 +162,6 @@ body > .el-container {
 .el-dropdown-link {
   cursor: pointer;
   color: #409EFF;
-}
-
-.subhead {
-  position: center;
-  width: 100%;
-  color: white;
 }
 
 </style>
