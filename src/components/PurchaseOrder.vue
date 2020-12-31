@@ -50,63 +50,58 @@
           width="50">
       </el-table-column>
       <el-table-column
-          prop="from"
+          prop="orderdate"
           label="下单日期"
           width="80">
       </el-table-column>
       <el-table-column
-          prop=""
+          prop="orderid"
           label="销售订单号"
           width="100">
       </el-table-column>
       <el-table-column
-          prop=""
+          prop="ordertyp"
           label="订单类型"
           width="100">
       </el-table-column>
       <el-table-column
-          prop="date"
+          prop="ordersts"
           label="订单状态"
           width="120">
       </el-table-column>
       <el-table-column
-          prop=""
+          prop="pickway"
           label="提货方式"
           width="110">
       </el-table-column>
       <el-table-column
-          prop=""
+          prop="dlrid"
           label="联系人"
           width="110">
       </el-table-column>
       <el-table-column
-          prop=""
+          prop="phone"
           label="联系电话"
           width="110">
       </el-table-column>
       <el-table-column
-          prop=""
+          prop="procount"
           label="数量"
           width="110">
       </el-table-column>
       <el-table-column
-          prop=""
+          prop="OAmount"
           label="订单金额"
           width="110">
       </el-table-column>
       <el-table-column
-          prop=""
+          prop="areamngr"
           label="区域负责人"
           width="110">
       </el-table-column>
       <el-table-column
-          prop=""
+          prop="comment"
           label="备注"
-          width="110">
-      </el-table-column>
-      <el-table-column
-          prop=""
-          label="不通过原因"
           width="110">
       </el-table-column>
       <el-table-column
