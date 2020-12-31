@@ -3,12 +3,10 @@ import VueRouter from 'vue-router'
 import Login from '../views/Login'
 import Func from '../views/Func'
 import Regist from "../views/Regist";
-import RetailOrderList from "@/views/RetailOrderList";
+import RetailOrderList from "@/components/RetailOrderList";
 import PendingOrder from "@/components/PendingOrder";
-import PurchaseOrder from "@/views/PurchaseOrder";
-import SubmitOrder from "@/views/SubmitOrder";
+import PurchaseOrder from "@/components/PurchaseOrder";
 
-import test from '../components/test'
 import SelectFunc from "../components/SelectFunc"
 import WholesalePurchase from "../components/WholesalePurchase"
 import Stockdemand from "../components/Stockdemand"
@@ -27,7 +25,7 @@ const routes = [
     component: Login
   },
   {
-    path: '/regist',
+    path: '/Regist',
     name: 'Regist',
     component: Regist
   },
@@ -42,18 +40,9 @@ const routes = [
         component: WholesalePurchase
       },
       {
-        path: '/PendingOrder',
-        name: 'func/PendingOrder',
-        component: PendingOrder
-      },
-      {
         path: '/Stockdemand',
         name: 'func/Stockdemand',
         component: Stockdemand
-      },
-      {
-        path: '/test',
-        component: test
       },
       {
         path: '/SelectFunc',
@@ -61,31 +50,21 @@ const routes = [
         component: SelectFunc
       },
       {
-        path: '/',
-        name: 'func/SelectFunc',
-        component: SelectFunc
+        path: '/PurchaseOrder',
+        name: 'PurchaseOrder',
+        component: PurchaseOrder
+      },
+      {
+        path: '/PendingOrder',
+        name: 'PendingOrder',
+        component: PendingOrder
+      },
+      {
+        path: '/RetailOrderList',
+        name: 'RetailOrderList',
+        component: RetailOrderList
       }
     ]
-  },
-  {
-    path: '/retailorderlist',
-    name: 'RetailOrderList',
-    component: RetailOrderList
-  },
-  {
-    path: '/pendingorder',
-    name: 'PendingOrder',
-    component: PendingOrder
-  },
-  {
-    path: '/purchaseorder',
-    name: 'PurchaseOrder',
-    component: PurchaseOrder
-  },
-  {
-    path: '/submitorder',
-    name: 'SubmitOrder',
-    component: SubmitOrder
   }
 ]
 

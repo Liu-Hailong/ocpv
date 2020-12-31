@@ -14,7 +14,7 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
-          <el-button @click="registpage()">注册</el-button>
+          <router-link to="/Regist"><el-button>注册</el-button></router-link>
         </el-form-item>
       </el-form>
     </el-main>

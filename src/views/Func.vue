@@ -47,8 +47,8 @@
                 <el-menu-item-group>
                   <router-link to="/SelectFunc"><el-menu-item index="1-1">提交订单</el-menu-item></router-link>
                   <router-link to="/PendingOrder"><el-menu-item index="1-2">待处理订单</el-menu-item></router-link>
-                  <el-menu-item index="1-3">采购订单</el-menu-item>
-                  <el-menu-item index="1-4">零售订单列表</el-menu-item>
+                  <router-link to="/PurchaseOrder"><el-menu-item index="1-3">采购订单</el-menu-item></router-link>
+                  <router-link to="/RetailOrderList"><el-menu-item index="1-4">零售订单列表</el-menu-item></router-link>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="2">
@@ -104,22 +104,6 @@
 </template>
 
 <script>
-import SelectFunc from "@/components/SelectFunc";
-export default {
-  name: "Func",
-  components: {SelectFunc},
-  methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    backlogin(){
-      this.$router.push("Login");
-    }
-  }
-}
 </script>
 
 <style scoped>
