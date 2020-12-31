@@ -39,10 +39,15 @@
       </el-form-item>
 
     <el-table
+        ref="multipleTable"
         @selection-change="handleSelectionChange"
         :data="tableData"
         border
         style="width: 1040px">
+      <el-table-column
+          type="selection"
+          width="40">
+      </el-table-column>
       <el-table-column
           fixed
           prop="id"
@@ -107,9 +112,13 @@
       <el-table-column
           fixed="right"
           label="操作"
-          width="260">
+          width="180">
         <template slot-scope="scope">
-          <el-button @click="handleClick(scope.row)" size="small">提交订单  编辑订单  订单详情  取消订单</el-button>
+          <img src="../assets/提交订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
+          <img src="../assets/编辑订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
+          <img src="../assets/订单详情.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
+          <img src="../assets/取消订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
+          <img src="../assets/确认收货.png" @click="handleClick(scope.row)" style="width: 25px;padding-left: 10px">
         </template>
       </el-table-column>
     </el-table>

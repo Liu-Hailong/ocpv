@@ -38,10 +38,15 @@
         <el-button type="primary" @click="onSubmit">查询</el-button>
       </el-form-item>
       <el-table
-          @selection-change="handleSelectionChange"
+          ref="multipleTable"
           :data="PendingOrderTable"
           border
-          style="width: 1040px">
+          style="width: 1040px"
+          @selection-change="handleSelectionChange">
+        <el-table-column
+            type="selection"
+            width="40">
+        </el-table-column>
         <el-table-column
             fixed
             prop="id"
@@ -106,9 +111,13 @@
         <el-table-column
             fixed="right"
             label="操作"
-            width="260">
+            width="180">
           <template slot-scope="scope">
-            <el-button @click="handleClick(scope.row)" size="small">提交订单  编辑订单  订单详情  取消订单</el-button>
+            <img src="../assets/提交订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
+            <img src="../assets/编辑订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
+            <img src="../assets/订单详情.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
+            <img src="../assets/取消订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
+            <img src="../assets/确认收货.png" @click="handleClick(scope.row)" style="width: 25px;padding-left: 10px">
           </template>
         </el-table-column>
       </el-table>
