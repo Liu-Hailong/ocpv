@@ -114,11 +114,11 @@
           label="操作"
           width="150">
         <template slot-scope="scope">
-          <img v-if="scope.row.ordersts !== '已提交' && scope.row.ordersts !== '已发货' " src="../assets/提交订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
-          <img v-if="scope.row.ordersts !== '已提交' && scope.row.ordersts !== '已发货' " src="../assets/编辑订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
+          <img v-if="scope.row.ordersts !== '已提交' && scope.row.ordersts !== '待提货' && scope.row.ordersts !== '待发货' && scope.row.ordersts !== '成功' && scope.row.ordersts !== '待确认收货' && scope.row.ordersts !== '已取消' && scope.row.ordersts !== '待开票' && scope.row.ordersts !== '部分开票' && scope.row.ordersts !== '已开票' " src="../assets/提交订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
+          <img v-if="scope.row.ordersts !== '已提交' && scope.row.ordersts !== '待提货' && scope.row.ordersts !== '待发货' && scope.row.ordersts !== '待确认收货' && scope.row.ordersts !== '成功' && scope.row.ordersts !== '已取消' && scope.row.ordersts !== '待开票' && scope.row.ordersts !== '部分开票' && scope.row.ordersts !== '已开票' " src="../assets/编辑订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
           <img src="../assets/订单详情.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
-          <img v-if="scope.row.ordersts !== '已提交' && scope.row.ordersts !== '已发货' " src="../assets/取消订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
-          <img v-if="scope.row.ordersts === '已发货' " src="../assets/确认收货.png" @click="handleClick(scope.row)" style="width: 25px;padding-left: 10px">
+          <img v-if="scope.row.ordersts !== '已提交' && scope.row.ordersts !== '已取消' && scope.row.ordersts !== '待提货' && scope.row.ordersts !== '成功' && scope.row.ordersts !== '待发货' && scope.row.ordersts !== '待确认收货' " src="../assets/取消订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px">
+          <img v-if="(scope.row.ordersts === '待确认收货' || scope.row.ordersts === '待提货') && scope.row.ordersts !== '成功' " src="../assets/确认收货.png" @click="handleClick(scope.row)" style="width: 25px;padding-left: 10px">
         </template>
       </el-table-column>
     </el-table>
