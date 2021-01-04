@@ -117,7 +117,7 @@
               <img v-if="scope.row.ordersts !== '已提交' && scope.row.ordersts !== '已发货' " src="../assets/提交订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px;cursor: pointer">
             </el-tooltip>
             <el-tooltip class="item" content="编辑订单" placement="bottom-start">
-              <img v-if="scope.row.ordersts !== '已提交' && scope.row.ordersts !== '已发货' " src="../assets/编辑订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px;cursor: pointer">
+              <img v-if="scope.row.ordersts !== '已提交' && scope.row.ordersts !== '已发货' " src="../assets/编辑订单.png" @click="EditOrder" style="width: 20px;padding-left: 10px;cursor: pointer">
             </el-tooltip>
             <el-tooltip class="item" content="订单详情" placement="bottom-start">
               <img src="../assets/订单详情.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px;cursor: pointer">
@@ -126,7 +126,7 @@
               <img v-if="scope.row.ordersts !== '已提交' && scope.row.ordersts !== '已发货' " src="../assets/取消订单.png" @click="handleClick(scope.row)" style="width: 20px;padding-left: 10px;cursor: pointer">
             </el-tooltip>
             <el-tooltip class="item" content="确认收货" placement="bottom-start">
-              <img v-if="scope.row.ordersts === '已发货' " src="../assets/确认收货.png" @click="handleClick(scope.row)" style="width: 25px;padding-left: 10px;cursor: pointer">
+              <img v-if="scope.row.ordersts === '已发货' " src="../assets/确认收货.png" @click="IsOrNotComfirm(scope.row)" style="width: 25px;padding-left: 10px;cursor: pointer">
             </el-tooltip>
           </template>
         </el-table-column>
@@ -249,6 +249,26 @@ export default {
     },
     handleClick(row) {
       console.log(row);
+    },
+    IsOrNotComfirm(row){
+      this.$confirm('是否确认收货', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning',
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          message: '确认!'
+        });
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消'
+        });
+      });
+    },
+    EditOrder(){
+      this.$router.push("Stockdemand");
     }
   }
 }
