@@ -30,9 +30,9 @@
         </el-select>
       </el-form-item>
       <el-form-item label="订单金额：" style="float: left">
-        <el-input placeholder="请输入" style="width: 160px"></el-input>
+        <el-input v-model="formInline.money1" placeholder="请输入" style="width: 160px"></el-input>
         至
-        <el-input placeholder="请输入" style="width: 160px"></el-input>
+        <el-input v-model="formInline.money2" placeholder="请输入" style="width: 160px"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit">查询</el-button>
@@ -155,7 +155,9 @@ export default {
         name: '',
         region: '',
         value1: '',
-        value2: ''
+        value2: '',
+        money1: '',
+        money2: ''
       },
       PendingOrderTable: [{
         id:'1',

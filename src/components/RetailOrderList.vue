@@ -5,10 +5,10 @@
         <el-input v-model="formInline.name" placeholder="请输入" style="width: 180px"></el-input>
       </el-form-item>
       <el-form-item label="所属网店：" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入" style="width: 180px"></el-input>
+        <el-input v-model="formInline.region" placeholder="请输入" style="width: 180px"></el-input>
       </el-form-item>
       <el-form-item label="发货状态：" style="float: left">
-        <el-select v-model="formInline.region" placeholder="请选择" style="width: 115px">
+        <el-select v-model="formInline.deliveryStatus" placeholder="请选择" style="width: 115px">
           <el-option label="待发货" value="shanghai"></el-option>
           <el-option label="已发货" value="beijing"></el-option>
           <el-option label="已签收" value="beijing"></el-option>
@@ -17,7 +17,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="订单状态：" style="float: left">
-        <el-select v-model="formInline.region" placeholder="请选择" style="width: 115px">
+        <el-select v-model="formInline.orderStatus" placeholder="请选择" style="width: 115px">
           <el-option label="已完成" value="shanghai"></el-option>
           <el-option label="已取消" value="beijing"></el-option>
           <el-option label="已签收" value="beijing"></el-option>
@@ -28,56 +28,56 @@
         </el-select>
       </el-form-item>
       <el-form-item label="订单日期：" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入" style="width: 100px"></el-input>
+        <el-input v-model="formInline.data1" placeholder="请输入" style="width: 100px"></el-input>
         至
-        <el-input v-model="formInline.name" placeholder="请输入" style="width: 100px"></el-input>
+        <el-input v-model="formInline.data2" placeholder="请输入" style="width: 100px"></el-input>
       </el-form-item>
       <el-form-item label="网上订单编号：" label-width="120px" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入" style="width: 200px"></el-input>
+        <el-input v-model="formInline.num1" placeholder="请输入" style="width: 200px"></el-input>
       </el-form-item>
       <el-form-item label="电商外部订单号：" label-width="140px" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入" style="width: 200px"></el-input>
+        <el-input v-model="formInline.num2" placeholder="请输入" style="width: 200px"></el-input>
       </el-form-item>
       <el-form-item label="付款日期：" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入" style="width: 100px"></el-input>
+        <el-input v-model="formInline.paydata1" placeholder="请输入" style="width: 100px"></el-input>
         至
-        <el-input v-model="formInline.name" placeholder="请输入" style="width: 100px"></el-input>
+        <el-input v-model="formInline.paydata2" placeholder="请输入" style="width: 100px"></el-input>
       </el-form-item>
       <el-form-item label="产品编码：" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入"></el-input>
+        <el-input v-model="formInline.proid" placeholder="请输入"></el-input>
       </el-form-item>
       <el-form-item label="产品型号：" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入"></el-input>
+        <el-input v-model="formInline.protype" placeholder="请输入"></el-input>
       </el-form-item>
       <el-form-item label="发货日期：" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入" style="width: 100px"></el-input>
+        <el-input v-model="formInline.deliverydata1" placeholder="请输入" style="width: 100px"></el-input>
         至
-        <el-input v-model="formInline.name" placeholder="请输入" style="width: 100px"></el-input>
+        <el-input v-model="formInline.deliverydata2" placeholder="请输入" style="width: 100px"></el-input>
       </el-form-item>
       <el-form-item label="快递公司：" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入"></el-input>
+        <el-input v-model="formInline.companyname" placeholder="请输入"></el-input>
       </el-form-item>
       <el-form-item label="快递单号：" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入"></el-input>
+        <el-input v-model="formInline.couriernum" placeholder="请输入"></el-input>
       </el-form-item>
       <el-form-item label="订单来源：" style="float: left">
-        <el-select v-model="formInline.region" placeholder="请选择" style="width: 115px">
+        <el-select v-model="formInline.orderfrom" placeholder="请选择" style="width: 115px">
           <el-option label="京东" value="shanghai"></el-option>
           <el-option label="天猫" value="beijing"></el-option>
           <el-option label="苏宁易购" value="beijing"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="收货人姓名：" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入" style="width: 160px"></el-input>
+        <el-input v-model="formInline.receivername" placeholder="请输入" style="width: 160px"></el-input>
       </el-form-item>
       <el-form-item label="收货人电话：" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入" style="width: 160px"></el-input>
+        <el-input v-model="formInline.receviernum" placeholder="请输入" style="width: 160px"></el-input>
       </el-form-item>
       <el-form-item label="收货地址：" style="float: left">
-        <el-input v-model="formInline.name" placeholder="请输入" style="width: 160px"></el-input>
+        <el-input v-model="formInline.receiverplace" placeholder="请输入" style="width: 160px"></el-input>
       </el-form-item>
       <el-form-item style="float: left;padding-left: 20px">
-        <el-checkbox-group v-model="formInline.type">
+        <el-checkbox-group v-model="formInline.mess">
           <el-checkbox label="买家留言"></el-checkbox>
           <el-checkbox label="卖家留言"></el-checkbox>
         </el-checkbox-group>
@@ -248,7 +248,26 @@ export default {
       formInline: {
         name: '',
         region: '',
-        type:[]
+        type:[],
+        mess:'',
+        proid:'',
+        receiverplace:'',
+        deliveryStatus:'',
+        orderStatus:'',
+        data1:'',
+        data2:'',
+        num1:'',
+        num2:'',
+        paydata1:'',
+        paydata2:'',
+        protype:'',
+        deliverydata1:'',
+        deliverydata2:'',
+        companyname:'',
+        couriernum:'',
+        orderfrom:'',
+        receivername:'',
+        receviernum:''
       },
       tableData: [{
         id:'1',
