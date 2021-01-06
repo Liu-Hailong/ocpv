@@ -10,6 +10,11 @@ import PurchaseOrder from "@/components/PurchaseOrder";
 import SelectFunc from "../components/SelectFunc"
 import WholesalePurchase from "../components/WholesalePurchase"
 import Stockdemand from "../components/Stockdemand"
+import MainPage from "@/backstage/MainPage";
+import WaitList_Stockdemand from "@/backstage/WaitList_Stockdemand";
+import WaitList_Wholesale from "@/backstage/WaitList_Wholesale";
+import Recheck_Stockdemand from "@/backstage/Recheck_Stockdemand";
+import Recheck_Wholesale from "@/backstage/Recheck_Wholesale";
 
 Vue.use(VueRouter)
 
@@ -64,6 +69,33 @@ const routes = [
         name: 'RetailOrderList',
         component: RetailOrderList,
       }
+    ]
+  },
+  {
+    path: '/MainPage',
+    name: 'MainPage',
+    component: MainPage,
+    children: [
+      {
+        path: '/WaitList_Stockdemand',
+        name: 'WaitList_Stockdemand',
+        component: WaitList_Stockdemand,
+      },
+      {
+        path: '/WaitList_Wholesale',
+        name: 'WaitList_Wholesale',
+        component: WaitList_Wholesale,
+      },
+      {
+        path: '/Recheck_Stockdemand',
+        name: 'Recheck_Stockdemand',
+        component: Recheck_Stockdemand,
+      },
+      {
+        path: '/Recheck_Wholesale',
+        name: 'Recheck_Wholesale',
+        component: Recheck_Wholesale,
+      },
     ]
   }
 ]
