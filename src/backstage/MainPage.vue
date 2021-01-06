@@ -22,10 +22,10 @@
       <el-dialog title="修改密码" :visible="dialogFormVisible" :show-close="false">
         <el-form :model="form" :rules="rules" ref="form">
           <el-form-item label="原密码" prop="oldpassword" :label-width="formLabelWidth">
-            <el-input v-model="form.oldpassword"></el-input>
+            <el-input placeholder="请输入密码" v-model="form.oldpassword" show-password></el-input>
           </el-form-item>
           <el-form-item label="新密码" prop="newpassword" :label-width="formLabelWidth">
-            <el-input v-model="form.newpassword"></el-input>
+            <el-input placeholder="请输入密码" v-model="form.newpassword" show-password></el-input>
           </el-form-item>
           <el-form-item>
             <el-button @click="dialogFormVisible = false">取 消</el-button>

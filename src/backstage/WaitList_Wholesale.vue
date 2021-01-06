@@ -110,7 +110,7 @@
             width="180">
           <template slot-scope="scope">
             <el-button @click="handleClick(scope.row)" size="small" style="background-color: red;color: white" >查看详情</el-button>
-            <el-button @click="IsOrNotComfirm(scope.row)" size="small" style="background-color: red;color: white" >审核</el-button>
+            <el-button @click="outerVisible = true" size="small" style="background-color: red;color: white" >审核</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -125,6 +125,22 @@
             :total="400">
         </el-pagination>
       </div>
+      <el-dialog title="是否确认通过" :visible.sync="outerVisible">
+        <el-dialog
+            width="30%"
+            title="审核不通过"
+            :visible.sync="innerVisible"
+            append-to-body>
+          <el-input
+              type="textarea"
+              autosize
+              placeholder="请输入审核不通过原因"
+              v-model="textarea1">
+          </el-input>
+        </el-dialog>
+        <el-button type="primary" @click="outerVisible = false">审核通过</el-button>
+        <el-button @click="innerVisible = true">不通过</el-button>
+      </el-dialog>
     </el-form>
   </el-container>
 </template>
@@ -147,7 +163,10 @@ name: "WaitList_Wholesale",
       Wholesale: [{
 
       }
-      ]
+      ],
+      outerVisible: false,
+      innerVisible: false,
+      textarea1:''
     }
   },
   methods: {
@@ -168,23 +187,6 @@ name: "WaitList_Wholesale",
     },
     handleClick(row) {
       console.log(row);
-    },
-    IsOrNotComfirm(row){
-      this.$confirm('是否确认通过', '提示', {
-        confirmButtonText: '审核通过',
-        cancelButtonText: '不通过',
-        type: 'warning',
-      }).then(() => {
-        this.$message({
-          type: 'success',
-          message: '确认!'
-        });
-      }).catch(() => {
-        this.$message({
-          type: 'info',
-          message: '拒绝'
-        });
-      });
     }
   }
 }
