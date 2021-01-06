@@ -4,20 +4,20 @@
       <el-form-item label="经销商编码：" style="float: left;padding-right: 20px">
         <el-input v-model="formInline.jxsid" placeholder="请输入" style="width: 160px"></el-input>
       </el-form-item>
-      <el-form-item label="区域：" style="float: left">
+      <el-form-item label="区域：" style="float: left;padding-right: 20px">
         <el-select v-model="formInline.region" placeholder="请选择" style="width: 160px">
           <el-option label="请选择" value="1"></el-option>
           <el-option label="电商" value="2"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="订单日期：" style="float: left">
-        <el-date-picker style="width: 150px"
+        <el-date-picker style="width: 160px"
                         v-model="formInline.time1"
                         type="date"
                         placeholder="请输入">
         </el-date-picker>
         至
-        <el-date-picker style="width: 150px"
+        <el-date-picker style="width: 160px"
                         v-model="formInline.time2"
                         type="date"
                         placeholder="请输入">
@@ -97,12 +97,12 @@
         <el-table-column
             prop="tcktpric"
             label="开票价格"
-            width="100">
+            width="90">
         </el-table-column>
         <el-table-column
             prop="OAmount"
             label="总金额"
-            width="100">
+            width="80">
         </el-table-column>
         <el-table-column
             prop="fcheck"

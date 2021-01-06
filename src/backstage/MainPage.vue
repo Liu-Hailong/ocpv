@@ -85,7 +85,7 @@
             <span>经销商管理</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="4-1">带经销商列表</el-menu-item>
+            <el-menu-item index="4-1">经销商列表</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="5">
