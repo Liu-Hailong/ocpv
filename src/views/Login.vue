@@ -7,14 +7,14 @@
       <img class="back" src="../assets/u34.jpg" />
       <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-form-item label="账号" prop="username">
-          <el-input v-model="ruleForm.username"></el-input>
+          <el-input v-model="ruleForm.usrname" @keyup.enter.native="submitForm"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-          <el-input type="password" v-model="ruleForm.password"></el-input>
+          <el-input type="password" v-model="ruleForm.psswrd" @keyup.enter.native="submitForm"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
-          <router-link to="/Regist"><el-button>注册</el-button></router-link>
+          <el-button type="primary" @click="submitForm()">登录</el-button>
+          <router-link to="/Regist"><el-button style="margin-left: 20px">注册</el-button></router-link>
         </el-form-item>
       </el-form>
     </el-main>
@@ -22,43 +22,49 @@
 </template>
 
 <script>
+  import utils from "@/utils/utils";
+  import {login} from "@/api";
+
   export default {
     name: "Login",
     data() {
       return {
         ruleForm: {
-          username: '',
-          password: ''
+          usrname: '',
+          psswrd: ''
         },
         rules: {
-          username: [
+          usrname: [
             { required: true, message: '请输入用户名', trigger: 'blur' },
             { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
           ],
-          password: [
+          psswrd: [
             { required: true, message: '请输入密码', trigger: 'change' }
           ]
         }
       };
     },
     methods: {
-      submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
+      submitForm() {
+        this.$refs['ruleForm'].validate((valid) => {
           if (valid) {
-            this.$router.push("RetailOrderList");
-            const _this = this;
-            this.$axios.post("http://localhost:8080/Login", this.ruleForm).then(res => {
-              const jwt = res.headers['authorization'];
-              const userInfo = res.data.data;
-            })
+            let success = (res) => {
+              if (res.data.code === "00") {
+                alert("欢迎你，" + "经销商:"+res.data.user.usrname);
+                this.$store.state.Info = res.data.user;
+                this.$router.push("RetailOrderList");
+              } else if (res.data.code === "01") {
+                alert("欢迎你，运营商!!");
+              } else {
+                alert(res.data.msg);
+              }
+            }
+            login(this.ruleForm, success);
           } else {
             console.log('error submit!!');
             return false;
           }
-        });
-      },
-      registpage() {
-        this.$router.push("Regist");
+        })
       }
     }
   }

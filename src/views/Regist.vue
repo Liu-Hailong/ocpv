@@ -6,14 +6,20 @@
     <el-main>
       <img class="back" src="../assets/u34.jpg" />
       <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-        <el-form-item label="账号" prop="username">
-          <el-input v-model="ruleForm.username"></el-input>
+        <el-form-item label="账号" prop="usrname">
+          <el-input v-model="ruleForm.usrname" @keyup.enter.native="submitForm"></el-input>
         </el-form-item>
-        <el-form-item label="密码" prop="password">
-          <el-input type="password" v-model="ruleForm.password"></el-input>
+        <el-form-item label="密码" prop="psswrd">
+          <el-input type="password" v-model="ruleForm.psswrd" @keyup.enter.native="submitForm"></el-input>
+        </el-form-item>
+        <el-form-item label="注册类型">
+          <el-select placeholder="请选择注册类型" v-model="ruleForm.usrtyp">
+            <el-option label="经销商" value="0"></el-option>
+            <el-option label="运营商" value="1"></el-option>
+          </el-select>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">注册</el-button>
+          <el-button type="primary" @click="submitForm()">注册</el-button>
           <el-button @click="back()">去登录</el-button>
         </el-form-item>
       </el-form>
@@ -22,40 +28,58 @@
 </template>
 
 <script>
+
+import {regist} from "@/api";
+
 export default {
 name: "Regist",
   data() {
     return {
       ruleForm: {
-        username: '',
-        password: ''
+        usrname: '',
+        psswrd: '',
+        usrtyp:''
       },
       rules: {
-        username: [
+        usrname: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
           { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
         ],
-        password: [
+        psswrd: [
           { required: true, message: '请输入密码', trigger: 'change' }
+        ],
+        usrtyp:[
+          {required: true}
         ]
       }
     };
   },
   methods: {
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
+    submitForm() {
+      this.$refs['ruleForm'].validate((valid) => {
         if (valid) {
-          alert('YES');
-          const _this = this;
-          this.$axios.post("http://localhost:8080/Regist", this.ruleForm).then(res => {
-            const jwt = res.headers['authorization'];
-            const userInfo = res.data.data;
-          })
+          if (this.ruleForm.usrtyp === "1" || this.ruleForm.usrtyp === "0") {
+            let success = (res) => {
+              if (res.data.code === "00" || res.data.code === "01") {
+                alert("注册成功！");
+                this.view.login.ruleForm.usrname=this.ruleForm.usrname;
+                this.$router.push("Login");
+              } else if (res.data.code === "02") {
+                alert("注册失败");
+                this.ruleForm.psswrd = '';
+                this.ruleForm.usrname = '';
+              }
+            }
+            regist(this.ruleForm, success);
+          }
+          else{
+            alert("请选择账号类型");
+          }
         } else {
           console.log('error submit!!');
           return false;
         }
-      });
+      })
     },
     back() {
       this.$router.push("Login");

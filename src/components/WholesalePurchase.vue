@@ -2,76 +2,73 @@
   <el-container>
     <el-form :inline="false" :model="formInline" class="demo-form-inline" style="width: 100%">
       <div style="height: 250px">
-      <h1 v-text="" style="text-align: left">万家乐燃气具有限责任公司采购申请</h1>
-
-      <el-row :gutter="80">
-        <el-col :span="8">
-          <el-form-item label="客户名称：">
-            <p v-text="">苏宁江苏店</p>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item label="客户编码：">
-            <p v-text="">GB23112123</p>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item label="店铺名称：">
-            <p v-text="">佳邦信息旗舰店</p>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row :gutter="80">
-        <el-col :span="8">
-          <el-form-item label="区域：">
-            <p v-text="">热水事业部华南区</p>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item label="提货方式：">
-            <p v-text="">自提</p>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row :gutter="80">
-        <el-col :span="8">
-          <el-form-item label="出货仓库：">
-            <el-select placeholder="请选择" v-model="formInline.ware" style="width: 100px">
-              <el-option
-                  v-for="item in formInline.wares"
-                  :label="item.name"
-                  :key="item.id"
-                  :value="item.name">
-              </el-option>
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item label="收货人：">
-            <p v-text="">宝宝</p>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item label="联系电话：">
-            <p v-text="">110</p>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row :gutter="80">
-        <el-col :span="8">
-          <el-form-item label="自提地址：">
-            <p v-text="">中国</p>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item label="备注：">
-            <p type="textarea" v-text="">tttt</p>
-          </el-form-item>
-        </el-col>
-      </el-row>
+        <h1 v-text="" style="text-align: left">万家乐燃气具有限责任公司采购申请</h1>
+        <el-row :gutter="80">
+          <el-col :span="8">
+            <el-form-item label="客户名称：">
+              <p v-model="dlrInfo.dlrnme"></p>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="客户编码：">
+              <p v-model="dlrInfo.dlrid"></p>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="店铺名称：">
+              <p v-model="dlrInfo.storenme"></p>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="80">
+          <el-col :span="8">
+            <el-form-item label="区域：">
+              <p v-model="dlrInfo.areanme"></p>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="提货方式：">
+              <p v-model="dlrInfo.way"></p>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="80">
+          <el-col :span="8">
+            <el-form-item label="出货仓库：">
+              <el-select placeholder="请选择" v-model="formInline.ware" style="width: 100px">
+                <el-option
+                    v-for="item in formInline.wares"
+                    :label="item.name"
+                    :key="item.id"
+                    :value="item.name">
+                </el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="收货人：">
+              <p v-text="">宝宝</p>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="联系电话：">
+              <p v-model="this.$store.state.Info.phone"></p>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="80">
+          <el-col :span="8">
+            <el-form-item label="自提地址：">
+              <p v-text="">中国</p>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="备注：">
+              <el-input type="textarea" v-text="">tttt</el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
       </div>
-
-
       <!--数据来源-->
       <h1>已选产品</h1>
       <el-table
@@ -149,8 +146,6 @@
             :total="400">
         </el-pagination>
       </div>
-
-
       <el-form-item>
         <el-button type="primary" @click="onSubmit">提交</el-button>
       </el-form-item>
@@ -159,6 +154,8 @@
 </template>
 
 <script>
+import {getdlrinfo} from "@/api";
+
 export default {
   name: "WholesalePurchase",
   data() {
@@ -166,19 +163,22 @@ export default {
       formInline: {
         user: '',
         wares: [{
-          id:'1',
-          name:'ddd'
+          id: '1',
+          name: 'ddd'
         }, {
-          id:'2',
-          name:'ppp'
+          id: '2',
+          name: 'ppp'
         }
         ],
-        ware:''
+        ware: ''
       },
-      currentPage1: 5,
-      currentPage2: 5,
-      currentPage3: 5,
-      currentPage4: 4
+      dlrInfo:{
+        dlrnme:'',
+        dlrid:'',
+        storenme:'',
+        areanme:'',
+        way:'自提'
+      }
     }
   },
   methods: {
@@ -193,9 +193,25 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+    success(res){
+      console.log(res.data);
+      this.dlrInfo.dlrnme = res.data['dlrnme'];
+      this.dlrInfo.dlrid = res.data.list['dlrid'];
+      this.dlrInfo.storenme = res.data.list['storenme'];
+      this.dlrInfo.areanme = res.data.list['areanme'];
+      console.log(this.dlrInfo.storenme);
+      alert(this.dlrInfo.storenme);
+    },
+    getdlrinfo(){
+      getdlrinfo({usrid: this.$store.state.Info.usrid}, this.success);
     }
+  },
+  mounted() {
+    this.getdlrinfo();
   }
 }
+
 </script>
 
 <style scoped>
