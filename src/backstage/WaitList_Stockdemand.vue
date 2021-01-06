@@ -127,10 +127,13 @@
             append-to-body>
           <el-input
               type="textarea"
-              autosize
               placeholder="请输入审核不通过原因"
-              v-model="textarea1">
+              v-model="textarea1"
+              maxlength="200"
+              show-word-limit>
           </el-input>
+          <el-button type="primary" @click="innerVisible = false">确定</el-button>
+          <el-button @click="innerVisible = false">取消</el-button>
         </el-dialog>
         <el-button type="primary" @click="outerVisible = false">审核通过</el-button>
         <el-button @click="innerVisible = true">不通过</el-button>
