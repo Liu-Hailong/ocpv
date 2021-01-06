@@ -11,14 +11,28 @@
           <el-col :span="12">
             <el-dropdown trigger="click">
               <span class="el-dropdown-link" style="color: white;font-size: 19px">admin</span>
-              <el-dropdown-menu>
-                <el-button type="text" @click="changepassword()" style="width: 80px;height: 20px;padding-top: 0">修改密码</el-button>
+              <el-dropdown-menu style="height: 20px">
+                <el-button type="text" @click="dialogFormVisible = true" style="padding-top:0;color: black">修改密码</el-button>
               </el-dropdown-menu>
             </el-dropdown>
           </el-col>
         </el-row>
         <img src="../assets/u42.png" style="float: right;height: 30px">
       </p>
+      <el-dialog title="修改密码" :visible="dialogFormVisible" :show-close="false">
+        <el-form :model="form" :rules="rules" ref="form">
+          <el-form-item label="原密码" prop="oldpassword" :label-width="formLabelWidth">
+            <el-input v-model="form.oldpassword"></el-input>
+          </el-form-item>
+          <el-form-item label="新密码" prop="newpassword" :label-width="formLabelWidth">
+            <el-input v-model="form.newpassword"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button @click="dialogFormVisible = false">取 消</el-button>
+            <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+          </el-form-item>
+        </el-form>
+      </el-dialog>
     </el-header>
 
     <el-container style="">
@@ -135,6 +149,24 @@
 <script>
 export default {
 name: "MainPage",
+  data(){
+    return{
+      dialogFormVisible: false,
+      form:{
+        oldpassword: '',
+        newpassword: ''
+      },
+      rules: {
+        oldpassword: [
+          { required: true, message: '请输入密码'}
+        ],
+        newpassword: [
+          { required: true, message: '请输入密码'}
+        ]
+      },
+      formLabelWidth: '120px',
+    }
+  },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
@@ -147,9 +179,6 @@ name: "MainPage",
     },
     onSubmit() {
       console.log('submit!');
-    },
-    changepassword(){
-
     }
   }
 }
