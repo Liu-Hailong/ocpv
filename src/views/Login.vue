@@ -49,12 +49,14 @@
         this.$refs['ruleForm'].validate((valid) => {
           if (valid) {
             let success = (res) => {
+              console.log(res);
               if (res.data.code === "00") {
-                alert("欢迎你，" + "经销商:"+res.data.user.usrname);
-                this.$store.state.Info = res.data.user;
-                this.$router.push("RetailOrderList");
+                this.$store.state.Info = res.data.map;
+                console.log(this.$store.state.Info);
+                this.$router.push("func");
               } else if (res.data.code === "01") {
-                alert("欢迎你，运营商!!");
+                this.$store.state.Info = res.data.user;
+                this.$router.push("MainPage");
               } else {
                 alert(res.data.msg);
               }

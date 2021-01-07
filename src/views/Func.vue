@@ -2,10 +2,11 @@
   <el-container style="height: 100%">
     <el-header>
       <p class="head">
-        <img class="logo" src="http://www.chinamacro.cn/images/logo_n.png" />
+        <img class="logo" src="http://www.chinamacro.cn/images/logo_n.png"/>
         <h>OCP全渠道数字平台</h>
         <el-tooltip class="item" content="退出系统" placement="bottom-start">
-          <img src="../assets/u127.png" style="float: right;padding-left:16px;height: 30px;cursor: pointer" @click="backlogin()">
+          <img src="../assets/u127.png" style="float: right;padding-left:16px;height: 30px;cursor: pointer"
+               @click="backlogin()">
         </el-tooltip>
         <el-row style="float: right">
           <el-col :span="12">
@@ -28,8 +29,6 @@
                default-active="1"
                unique-opened="true"
                class="el-menu-vertical-demo"
-               @open="handleOpen"
-               @close="handleClose"
                background-color="#545c64"
                text-color="#fff"
                active-text-color="#ffd04b">
@@ -39,10 +38,18 @@
             <span>订单管理</span>
           </template>
           <el-menu-item-group>
-            <router-link to="/SelectFunc"><el-menu-item index="1-1">提交订单</el-menu-item></router-link>
-            <router-link to="/PendingOrder"><el-menu-item index="1-2">待处理订单</el-menu-item></router-link>
-            <router-link to="/PurchaseOrder"><el-menu-item index="1-3">采购订单</el-menu-item></router-link>
-            <router-link to="/RetailOrderList"><el-menu-item index="1-4">零售订单列表</el-menu-item></router-link>
+            <router-link to="/SelectFunc">
+              <el-menu-item index="1-1">提交订单</el-menu-item>
+            </router-link>
+            <router-link to="/PendingOrder">
+              <el-menu-item index="1-2">待处理订单</el-menu-item>
+            </router-link>
+            <router-link to="/PurchaseOrder">
+              <el-menu-item index="1-3">采购订单</el-menu-item>
+            </router-link>
+            <router-link to="/RetailOrderList">
+              <el-menu-item index="1-4">零售订单列表</el-menu-item>
+            </router-link>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="2">
@@ -87,7 +94,6 @@
           </el-menu-item-group>
         </el-submenu>
       </el-menu>
-
       <el-main style="width: 100%">
         <router-view></router-view>
       </el-main>
@@ -98,24 +104,15 @@
 <script>
 export default {
   methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    },
     backlogin() {
       this.$router.push("Login");
-    },
-    onSubmit() {
-      console.log('submit!');
     }
   }
 }
 </script>
 
 <style scoped>
-*{
+* {
   margin: 0px;
   padding: 0px;
   border: 0px;
@@ -150,7 +147,7 @@ body > .el-container {
   margin: 0px;
 }
 
-.head > h{
+.head > h {
   font-size: 32px;
   color: white;
 }
@@ -159,6 +156,7 @@ body > .el-container {
   margin-right: 5px;
   margin-top: 16px;
 }
+
 .el-dropdown-link {
   cursor: pointer;
   color: #409EFF;
