@@ -136,3 +136,12 @@ export const getorderdetail = (form, res) => {
         callback: res
     })
 }
+
+export const submitcount = (form, res) => {
+    utils.axiosMethod({
+        method: 'POST',
+        url: '/porder/submitProCount',
+        params: form,
+        callback: res
+    })
+}

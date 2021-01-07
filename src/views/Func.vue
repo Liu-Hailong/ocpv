@@ -25,7 +25,7 @@
     </el-header>
 
     <el-container style="">
-      <el-menu style="width: 240px"
+      <el-menu style="width: 240px; height: 100%;"
                default-active="1"
                unique-opened="true"
                class="el-menu-vertical-demo"
@@ -94,7 +94,7 @@
           </el-menu-item-group>
         </el-submenu>
       </el-menu>
-      <el-main style="width: 100%">
+      <el-main style="padding: 0">
         <router-view></router-view>
       </el-main>
     </el-container>

@@ -15,6 +15,7 @@ import WaitList_Stockdemand from "@/backstage/WaitList_Stockdemand";
 import WaitList_Wholesale from "@/backstage/WaitList_Wholesale";
 import Recheck_Stockdemand from "@/backstage/Recheck_Stockdemand";
 import Recheck_Wholesale from "@/backstage/Recheck_Wholesale";
+import firstpage from "@/components/firstpage";
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ const routes = [
     name: 'Func',
     component: Func,
     children: [
+      {
+        path: '/',
+        name: 'firstpage',
+        component: firstpage,
+      },
       {
         path: '/SelectFunc',
         name: 'SelectFunc',

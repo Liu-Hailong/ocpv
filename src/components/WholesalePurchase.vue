@@ -71,14 +71,13 @@
       </div>
       <!--数据来源-->
       <el-row  :gutter="10">
-        <el-col :span="12">
+        <el-col :span="10">
           <h1>现有产品</h1>
           <el-table
               :data="wareData"
               border
               show-summary
               style="width: 100%">
-
             <el-table-column
                 prop="proid"
                 label="产品编码"
@@ -92,19 +91,13 @@
             <el-table-column
                 prop="protyp"
                 label="品类"
-                width="80">
-            </el-table-column>
-            <el-table-column
-                prop="procount"
-                sortable
-                label="数量（件）"
-                width="120">
+                width="70">
             </el-table-column>
             <el-table-column
                 prop="tcktpric"
                 sortable
                 label="开票价（元）"
-                width="140">
+                width="130">
             </el-table-column>
             <el-table-column
                 prop="proprice"
@@ -133,12 +126,11 @@
             </el-table-column>
           </el-table>
         </el-col>
-        <el-col :span="12">
+        <el-col :span="14">
           <h1>已选产品</h1>
           <el-table
               :data="proData"
               border
-              show-summary
               style="width: 100%">
             <el-table-column
                 prop="proid"
@@ -154,12 +146,6 @@
                 prop="protyp"
                 label="品类"
                 width="80">
-            </el-table-column>
-            <el-table-column
-                prop="procount"
-                sortable
-                label="数量（件）"
-                width="120">
             </el-table-column>
             <el-table-column
                 prop="tcktpric"
@@ -178,6 +164,15 @@
                 sortable
                 label="体积"
                 width="80">
+            </el-table-column>
+            <el-table-column
+                prop="procount"
+                sortable
+                label="数量（件）"
+                width="200">
+              <template slot-scope="scope1">
+                <el-input-number v-model="scope1.row.procount" :step="1" :min="1"style="transform: scale(0.8,1)"></el-input-number>
+              </template>
             </el-table-column>
             <el-table-column
                 fixed="right"
@@ -212,7 +207,7 @@ import {
   getchosedpro,
   getdlrinfo,
   getproinfo,
-  getwareslist,
+  getwareslist, submitcount,
   submitwholesalepurchase
 } from "@/api";
 
@@ -222,9 +217,10 @@ export default {
     return {
       formInline: {
         usrid: this.$store.state.Info.usrid,
+        dlrid:'',
         wareid: '',
         comment:'',
-        ordersts:''
+        ordersts:'',
       },
       proData:[],
       dlrInfo:{
@@ -236,18 +232,30 @@ export default {
         way:'自提'
       },
       wares: [],
-      wareData:[]
+      wareData:[],
+      temp:null,
     }
   },
   methods: {
     onSubmit(status) {
       this.formInline.ordersts = status;
-      submitwholesalepurchase(this.formInline, this.successsubmit);
+      submitwholesalepurchase(this.formInline, res=>{
+        this.proData=[];
+        this.formInline.comment='';
+        this.temp=res.data.num;
+        alert(res.data.msg);
+      });
+      console.log(this.temp);
+      this.submitCount(this.temp);
+      this.temp=null;
     },
-    successsubmit(res){
-      alert(res.data.msg);
-      this.proData=[];
-      this.formInline.comment='';
+    submitCount(orderid){
+      for (const item in this.proData){
+        console.log("ddd");
+        submitcount({orderid:orderid, proid:this.proData[item].proid, procount:this.proData[item].procount},res=>{
+          console.log("提交成功");
+        });
+      }
     },
     success(res){
       this.dlrInfo.dlrnme = res.data['dlrnme'];

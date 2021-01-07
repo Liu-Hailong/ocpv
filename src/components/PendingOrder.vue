@@ -76,7 +76,6 @@
             label="提货方式"
             width="80">
         </el-table-column>
-
         <el-table-column
             prop="procount"
             label="数量"
@@ -238,6 +237,7 @@ export default {
     handleClick(row) {
       this.chose=row.orderid;
       console.log(row);
+      this.proData=[];
       document.getElementById("dddd").style.display='block';
       getorderdetail({orderid:this.chose}, res=>{
         console.log(res);

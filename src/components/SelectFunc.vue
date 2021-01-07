@@ -1,7 +1,8 @@
 <template>
-  <el-container style="margin-top: 100px">
+  <el-container class="container">
+    <div class="tip">
     <el-header class="head">
-      <h>选择订单类型</h>
+      <h style="color: #E9EEF3; font-size: 28px; margin-top: 10px">选择订单类型</h>
     </el-header>
     <el-main>
       <router-link to="/WholesalePurchase">
@@ -11,6 +12,7 @@
         <el-button class="button">备货需求</el-button>
       </router-link>
     </el-main>
+    </div>
   </el-container>
 </template>
 
@@ -21,65 +23,27 @@ export default {
 </script>
 
 <style scoped>
-.el-header, .el-footer {
-  background-color: rgba(235, 116, 25, 0.8);
-  color: #333;
-  text-align: center;
-  line-height: 50px;
-  border-radius: 10px 10px 10px 10px;
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
-
-.el-aside {
-  background-color: rgba(102, 102, 102, 1);
-  color: #333;
-  text-align: center;
-  line-height: 100%;
-}
-
-.el-main {
-  background-color: #E9EEF3;
-  color: #333;
-  text-align: center;
-  line-height: 100%;
-}
-
-body >#app> .el-container {
+.container{
+  width: 86%;
+  height:93%;
+  background-color: rgba(1, 1,1,0.5);
   position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  top: 0px;
 }
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
+.tip{
+  background-color: white;
+  border-radius: 10px 10px 10px 10px;
+  width: 300px;
+  height: 200px;
+  margin: 120px auto 0;
 }
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
+.head{
+  background-color: rgba(235, 116, 25, 0.8);
+  border-radius: 10px 10px 0px 0px;
+  color: #E9EEF3;
 }
-
-.logo {
-  margin-top: 15px;
-}
-
-.head {
-  margin: 0px;
-}
-
-.head > h{
-  font-size: 24px;
-  color: white;
-}
-
-.head > img {
-  margin-right: 5px;
-  margin-top: 16px;
-}
-
-.button {
-  margin: 20px;
-}
-
 </style>
